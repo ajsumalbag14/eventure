@@ -43,7 +43,7 @@
                             <label for="mobile" class="col-md-4 col-form-label text-md-right">Mobile Number</label>
 
                             <div class="col-md-6">
-                                <input id="mobile" type="text" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('name') }}" autofocus>
+                                <input id="mobile" type="text" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('name') }}" maxlength="12"autofocus>
 
                                 @if ($errors->has('mobile'))
                                     <span class="invalid-feedback">
