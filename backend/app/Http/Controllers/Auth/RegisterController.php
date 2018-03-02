@@ -80,6 +80,6 @@ class RegisterController extends Controller
 
         $user = $this->create($request->all());
 
-        return response()->json('Created', 201);
+        return response()->json(['Success:' => $user->toArray()], 201);
     }
 }
