@@ -7,35 +7,36 @@ use Illuminate\Http\Request;
 
 class TblEventsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    
+    public function add(Request $request)
     {
-        //
-    }
+        //validate user input
+        //default json datetime format  
+        //2012-03-19T07:22Z
+        $valid = $request->validate(
+        [
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'fr_datetime' => 'required|date|after_or_equal:today',
+            'to_datetime' => 'required|date|after:fr_datetime',
+            'location' => 'required|string',
+            'poster' => 'image|nullable',
+            'tags' => 'nullable|string',
+            'facebook' => 'url|nullable',
+            'twitter' => 'url|nullable',
+            'instagram' => 'url|nullable',
+            'website' => 'url|nullable',
+            'status' => 'required|string|in:online,onsite',
+        ]);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        //test
+            return response()->json(['Success:' => $valid],200);
+        
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+
+        //save new events
+
+        //return
     }
 
     /**
