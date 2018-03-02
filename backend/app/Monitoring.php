@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Monitoring extends Model
 {
+	protected $fillable = [
+        'event_id', 'party_id', 'solo_id', 'status', 'remarks'
+    ];
+
     public function tblevents(){
     	$this->belongsTo(TblEvents::class);
     }

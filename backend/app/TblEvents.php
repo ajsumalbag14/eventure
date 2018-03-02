@@ -14,6 +14,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class TblEvents extends Model
 {
+    protected $fillable = [
+        'name', 'description', 'fr_datetime', 'to_datetime','location',
+        'poster', 'tags', 'facebook', 'twitter', 'instagram', 'website',
+        'status','user_id'
+    ];
     
     public function user(){
         $this->belongsTo(User::class);

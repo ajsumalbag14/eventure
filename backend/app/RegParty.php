@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class RegParty extends Model
 {
+
+	protected $fillable = [
+        'name', 'email', 'phone', 'affiliation','event_id'
+    ];
+
     public function tblevents(){
     	$this->belongsTo(TblEvents::class);
     }
