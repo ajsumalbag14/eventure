@@ -29,14 +29,34 @@ class TblEventsController extends Controller
             'status' => 'required|string|in:online,onsite',
         ]);
 
+        //save new event
+        $events = new TblEvents;
+        $events->name = $request->name;
+        $events->description = $request->description;
+        $events->fr_datetime = $request->fr_datetime;
+        $events->to_datetime = $request->to_datetime;
+        $events->location = $request->location;
+        $events->poster = $request->poster;
+        $events->tags = $request->tags;
+        $events->facebook = $request->facebook;
+        $events->twitter = $request->twitter;
+        $events->instagram = $request->instagram;
+        $events->website = $request->website;
+        $events->status = $request->status;
+        $events->isDraft = true;
+        $events->isPublished = false;
+        $events->isDown = false;
+        $events->user_id = 1;
+        $events->save();
+
+        //return
+
         //test
-            return response()->json(['Success:' => $valid],200);
+            return response()->json(['Success:' => $events->toArray()],200);
         
 
 
-        //save new events
-
-        //return
+        
     }
 
     /**
