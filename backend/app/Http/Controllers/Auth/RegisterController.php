@@ -52,7 +52,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'mobile' => 'string|max:15',
+            'mobile' => 'string|max:12',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
@@ -80,6 +80,6 @@ class RegisterController extends Controller
 
         $user = $this->create($request->all());
 
-        return response()->json('Created', 201);
+        return response()->json(['Success:' => $user->toArray()], 201);
     }
 }
