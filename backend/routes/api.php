@@ -17,7 +17,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('login', 'Auth\LoginController@login')->name('api.login');
-Route::post('register', 'Auth\RegisterController@register')->name('api.register');
+Route::post('login', 'Auth\LoginController@login')->name('api-login');
+Route::post('register', 'Auth\RegisterController@register');
 
-Route::post('events', 'TblEventsController@add')->name('api.events.add');
